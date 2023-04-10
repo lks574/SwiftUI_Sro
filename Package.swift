@@ -4,19 +4,22 @@
 import PackageDescription
 
 let package = Package(
-  name: "Domain",
+  name: "SwiftUI_Sro",
   products: [
     // Products define the executables and libraries a package produces, making them visible to other packages.
     .library(
-      name: "Domain",
-      targets: ["Domain"]),
+      name: "SwiftUI_Sro",
+      targets: ["SwiftUI_Sro"]),
+  ],
+  dependencies: [
+    .package(url: "https://github.com/airbnb/swift", from: "1.0.0"),
   ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
     // Targets can depend on other targets in this package and products from dependencies.
     .target(
-      name: "Domain"),
+      name: "SwiftUI_Sro"),
     .testTarget(
-      name: "DomainTests",
-      dependencies: ["Domain"]),
+      name: "SwiftUI_SroTests",
+      dependencies: ["SwiftUI_Sro"]),
   ])

@@ -3,21 +3,37 @@ import ProjectDescription
 extension Target {
   static func previewTarget(
     projectName: String,
-    dependencies: [TargetDependency]
-  ) -> Self
+    dependencies: [TargetDependency])
+    -> Self
   {
     .init(
-      name: "SwiftUI-Sro",
+      name: "\(projectName)Preview",
       platform: .iOS,
       product: .app,
-      bundleId: "com.sro.swiftui-Sro.\(projectName.lowercased()).preview",
-      deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone, .ipad]),
+      bundleId: "com.sro.swiftui-sro.\(projectName.lowercased()).preview",
+      deploymentTarget: .defaultTarget,
       sources: ["Sources/**"],
       resources: ["Resources/**"],
       scripts: [],
       dependencies: dependencies,
-      settings: .settings()
-    )
+      settings: .settings())
+  }
+
+  static func previewTestTarget(
+    projectName: String)
+    -> Self
+  {
+    .init(
+      name: "\(projectName)PreviewTests",
+      platform: .iOS,
+      product: .unitTests,
+      bundleId: "com.sro.swiftui-sro.\(projectName.lowercased()).preview.tests",
+      deploymentTarget: .defaultTarget,
+      sources: ["Tests/**"],
+      dependencies: [
+        .target(name: "\(projectName)Preview"),
+      ],
+      settings: .settings())
   }
 }
 
@@ -29,8 +45,7 @@ extension [Scheme] {
         shared: true,
         hidden: false,
         buildAction: .init(targets: ["\(previewTestTarget)Preview"]),
-        testAction: .targets(["\(previewTestTarget)PreviewTests"])
-      ),
+        testAction: .targets(["\(previewTestTarget)PreviewTests"])),
     ]
   }
 }
@@ -48,8 +63,8 @@ extension Project {
       packages: packages,
       targets: [
         .previewTarget(projectName: projectName, dependencies: dependencies),
+        .previewTestTarget(projectName: projectName),
       ],
-      schemes: .testScheme(previewTestTarget: projectName)
-    )
+      schemes: .testScheme(previewTestTarget: projectName))
   }
 }

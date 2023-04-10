@@ -6,14 +6,13 @@ let targets: [Target] = [
     name: "SwiftUI-Sro",
     platform: .iOS,
     product: .app,
-    bundleId: "com.sro.swiftui-Sro",
-    deploymentTarget: .iOS(targetVersion: "15.0", devices: [.iphone, .ipad]),
+    bundleId: "com.sro.swiftui-sro",
+    deploymentTarget: .defaultTarget,
     sources: ["Sources/**"],
     resources: ["Resources/**"],
     scripts: [],
     dependencies: .default,
-    settings: .settings()
-  )
+    settings: .settings()),
 ]
 
 let project: Project = .init(
@@ -25,12 +24,11 @@ let project: Project = .init(
     .local(path: "../Core/Platform"),
     .local(path: "../Core/DesignSystem"),
     .local(path: "../Core/Functor"),
-    .local(path: "../Study/BaseSwiftUI")
+    .local(path: "../Study/BaseSwiftUI"),
   ],
   settings: .settings(),
   targets: targets,
-  schemes: []
-)
+  schemes: [])
 
 extension [TargetDependency] {
   public static var `default`: Self {

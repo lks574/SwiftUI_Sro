@@ -1,7 +1,7 @@
 import XCTest
-@testable import Functor
+@testable import SwiftUI_Sro
 
-final class FunctorTests: XCTestCase {
+final class SwiftUI_SroTests: XCTestCase {
   func testExample() throws {
     // XCTest Documenation
     // https://developer.apple.com/documentation/xctest
