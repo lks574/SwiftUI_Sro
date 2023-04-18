@@ -1,5 +1,5 @@
-import SwiftUI
 import BaseSwiftUI
+import SwiftUI
 
 @main
 struct AppMain: App {

@@ -11,6 +11,8 @@ public enum ErrorRepo: Error {
   case other(Error)
   case userCancelled
 
+  // MARK: Public
+
   public var displayMessage: String {
     switch self {
     case .requestFailed(let description):

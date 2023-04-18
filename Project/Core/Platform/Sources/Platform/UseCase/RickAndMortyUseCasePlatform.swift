@@ -1,7 +1,11 @@
-import Foundation
 import Domain
+import Foundation
+
+// MARK: - RickAndMortyUseCasePlatform
 
 public struct RickAndMortyUseCasePlatform { }
+
+// MARK: RickAndMortyUseCase
 
 extension RickAndMortyUseCasePlatform: RickAndMortyUseCase {
   public func getCharacters() async -> Result<CharactersRepo, ErrorRepo> {

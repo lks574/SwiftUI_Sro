@@ -1,9 +1,9 @@
-import Foundation
 import Domain
+import Foundation
 
-public struct NetworkClient {
+public enum NetworkClient {
 
-  static func fetch<T: Codable>(method: HttpMethod, path: String, responseModel: T.Type) async -> Result<T, ErrorRepo> {
+  static func fetch<T: Codable>(method: HttpMethod, path: String, responseModel _: T.Type) async -> Result<T, ErrorRepo> {
     var request: URLRequest = {
       let url = URL(string: path)!
       return URLRequest(url: url)
@@ -25,5 +25,5 @@ public struct NetworkClient {
     } catch {
       return .failure(ErrorRepo.invalidTypeCasting(error.localizedDescription))
     }
-   }
+  }
 }

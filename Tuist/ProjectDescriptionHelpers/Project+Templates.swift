@@ -105,6 +105,7 @@ var defaultInfoValue: [String: InfoPlist.Value] {
     "UIBackgroundModes": .array([.string("remote-notification")]),
   ]
 }
+
 extension String {
 
   public static func appVersion() -> String {
