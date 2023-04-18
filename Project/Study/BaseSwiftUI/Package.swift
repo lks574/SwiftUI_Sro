@@ -12,11 +12,19 @@ let package = Package(
       name: "BaseSwiftUI",
       targets: ["BaseSwiftUI"]),
   ],
+  dependencies: [
+    .package(path: "../../Core/Domain"),
+    .package(path: "../../Core/Platform"),
+  ],
   targets: [
     // Targets are the basic building blocks of a package, defining a module or a test suite.
     // Targets can depend on other targets in this package and products from dependencies.
     .target(
-      name: "BaseSwiftUI"),
+      name: "BaseSwiftUI",
+    dependencies: [
+      "Domain",
+      "Platform",
+    ]),
     .testTarget(
       name: "BaseSwiftUITests",
       dependencies: ["BaseSwiftUI"]),
