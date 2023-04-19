@@ -3,7 +3,9 @@ import Foundation
 
 // MARK: - RickAndMortyUseCasePlatform
 
-public struct RickAndMortyUseCasePlatform { }
+public struct RickAndMortyUseCasePlatform {
+  public init() { }
+}
 
 // MARK: RickAndMortyUseCase
 
