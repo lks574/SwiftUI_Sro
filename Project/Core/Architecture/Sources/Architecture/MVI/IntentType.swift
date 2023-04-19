@@ -3,7 +3,7 @@ import Foundation
 
 // MARK: - IntentType
 
-protocol IntentType: AnyObject {
+public protocol IntentType: AnyObject {
   associatedtype ViewAction
   associatedtype State
 
@@ -16,14 +16,14 @@ protocol IntentType: AnyObject {
 
 extension IntentType {
 
-  func send(action: ViewAction) {
+  public func send(action: ViewAction) {
     mutate(action: action)
   }
 }
 
 // MARK: - IntentBindingType
 
-protocol IntentBindingType {
+public protocol IntentBindingType {
   associatedtype IntentType
   associatedtype State
 
