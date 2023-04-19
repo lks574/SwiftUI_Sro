@@ -1,6 +1,10 @@
 import Foundation
 
-public enum ErrorRepo: Error {
+public enum ErrorRepo: Error, Equatable {
+  public static func == (lhs: Self, rhs: Self) -> Bool {
+    lhs.displayMessage == rhs.displayMessage
+  }
+
   case requestFailed(String)
   case responseUnsuccessful(String)
   case invalidTypeCasting(String)

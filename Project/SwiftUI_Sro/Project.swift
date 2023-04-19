@@ -25,6 +25,7 @@ let project: Project = .init(
     .local(path: "../Core/DesignSystem"),
     .local(path: "../Core/Functor"),
     .local(path: "../Study/BaseSwiftUI"),
+    .local(path: "../Study/MVI"),
   ],
   settings: .settings(),
   targets: targets,
@@ -38,6 +39,7 @@ extension [TargetDependency] {
       .package(product: "Platform"),
       .package(product: "DesignSystem"),
       .package(product: "Functor"),
+      .package(product: "MVI"),
     ]
   }
 }
