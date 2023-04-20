@@ -8,6 +8,7 @@ let targets: [Target] = [
     product: .app,
     bundleId: "com.sro.swiftui-sro",
     deploymentTarget: .defaultTarget,
+    infoPlist: .extendingDefault(with: defaultInfoValue),
     sources: ["Sources/**"],
     resources: ["Resources/**"],
     scripts: [],
@@ -45,4 +46,39 @@ extension [TargetDependency] {
       .package(product: "TCA"),
     ]
   }
+}
+
+var defaultInfoValue: [String: InfoPlist.Value] {
+  [
+    "CFBundleDevelopmentRegion": .string("$(DEVELOPMENT_LANGUAGE)"),
+    "CFBundleDisplayName": .string("${PRODUCT_NAME}"),
+    "CFBundleShortVersionString": .string(.appVersion()),
+    "CFBundleVersion": .string(.appBuildVersion()),
+    "LSHasLocalizedDisplayName": .boolean(true),
+    "UIApplicationSupportsMultipleScenes": .boolean(false),
+    "UISupportedInterfaceOrientations": .array([
+      .string("UIInterfaceOrientationPortrait"),
+    ]),
+    "LSRequiresIPhoneOS": .boolean(true),
+    "UIApplicationSceneManifest": .dictionary([
+      "UIApplicationSupportsMultipleScenes": .boolean(true),
+    ]),
+    "UIApplicationSupportsIndirectInputEvents": .boolean(true),
+    "UILaunchScreen": .dictionary([:]),
+    "UISceneConfigurations": .dictionary([
+      "UIApplicationSupportsMultipleScenes": .boolean(false),
+      "UISceneConfigurations": .dictionary([
+        "UIWindowSceneSessionRoleApplication": .array([.dictionary([
+          "UISceneDelegateClassName": "$(PRODUCT_MODULE_NAME).SceneDelegate",
+        ])]),
+      ]),
+    ]),
+    "ITSAppUsesNonExemptEncryption": .boolean(false),
+    "NSAppTransportSecurity": .dictionary([
+      "NSAllowsArbitraryLoads": .boolean(true),
+    ]),
+    "NSUserTrackingUsageDescription": .string("Press [Allow] now to be the first to receive news about events tailored to you."),
+    "CFBundleAllowMixedLocalizations": .boolean(true),
+    "UIBackgroundModes": .array([.string("remote-notification")]),
+  ]
 }
