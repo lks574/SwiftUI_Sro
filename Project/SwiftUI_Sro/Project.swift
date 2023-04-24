@@ -28,6 +28,7 @@ let project: Project = .init(
     .local(path: "../Study/BaseSwiftUI"),
     .local(path: "../Study/MVI"),
     .local(path: "../Study/TCA"),
+    .local(path: "../Study/OpenArt"),
   ],
   settings: .settings(),
   targets: targets,
@@ -44,6 +45,7 @@ extension [TargetDependency] {
       .package(product: "BaseSwiftUI"),
       .package(product: "MVI"),
       .package(product: "TCA"),
+      .package(product: "OpenArt"),
     ]
   }
 }
