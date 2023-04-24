@@ -5,17 +5,24 @@ import PackageDescription
 
 let package = Package(
     name: "OpenArt",
+    platforms: [.iOS(.v15)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "OpenArt",
             targets: ["OpenArt"]),
     ],
+    dependencies: [
+      .package(path: "../../Core/DesignSystem"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "OpenArt"),
+            name: "OpenArt",
+            dependencies: [
+              "DesignSystem",
+            ]),
         .testTarget(
             name: "OpenArtTests",
             dependencies: ["OpenArt"]),
